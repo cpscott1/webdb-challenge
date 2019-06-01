@@ -25,7 +25,7 @@ router.get('/project/:id', (req, res) => {
       .where({ project_id: id })
       .then(actions => {
         projects.actions = actions
-        return res.status(200).json(projects)
+        return res.status(200).json(actions)
       })
     })
     .catch(err => {
