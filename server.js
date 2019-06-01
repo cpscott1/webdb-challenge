@@ -9,8 +9,8 @@ const server = express();
 server.use(helmet());
 server.use(express.json());
 
-server.use('api/projects', projectRouter);
-server.use('api/actions', actionRouter);
+server.use('/api/projects', projectRouter);
+server.use('/api/actions', actionRouter);
 
 server.get('/', (req, res) => {
   res.send('<h2>Testing come you see this?</h2>')
