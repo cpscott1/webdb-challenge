@@ -16,15 +16,15 @@ router.get('/', (req, res) => {
 
 router.get('/project/:id', (req, res) => {
   const { id } = req.params;
-
     db('projects')
     .where({ id: id })
     .first()
-    .then(projects => {
+    .then(project => {
       db('actions')
       .where({ project_id: id })
       .then(actions => {
-        res.status(200).json(actions)
+        project.actions = actions
+        res.status(200).json(project)
       })
     })
     .catch(err => {
